@@ -18,3 +18,14 @@ The following topics are not discussed in this paperwork, since the correspondin
 - Feistel networks and DES.
 
 Please, refer to the “Holy Crypto Bible” for the solutions. For further explanations, refer to the book.
+
+
+## How to Use It
+
+To use this project, you have a couple of options:
+
+1. **Clone the Project**: You can clone this repository to your local machine using the following command:
+```bash
+git clone https://github.com/cybersecurity-polito/cryptography-exercises.git
+```
+2. **Download the PDF**: Alternatively, you can download the PDF file directly from the repository. Simply navigate to the root folder of the repository on GitHub and locate the PDF file. Then, click on the "Download" button to save the file to your computer.
