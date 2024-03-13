@@ -11,7 +11,7 @@ This paperwork has been produced by referring to the following sources:
 
 - Overheads of the Cryptography course (2022-23).
 
-## Missing Topics
+### Missing Topics
 
 The following topics are not discussed in this paperwork, since the corresponding exercises are quite easy:
 
