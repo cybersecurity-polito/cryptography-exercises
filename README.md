@@ -28,4 +28,4 @@ To use this project, you have a couple of options:
 ```bash
 git clone https://github.com/cybersecurity-polito/cryptography-exercises.git
 ```
-2. **Download the PDF**: Alternatively, you can download the PDF file directly from the repository. Simply navigate to the root folder of the repository on GitHub and locate the PDF file. Then, click on the "Download" button to save the file to your computer.
+2. **Download the PDF**: Alternatively, you can download the PDF file directly from the repository. Simply navigate to the repository's release page on GitHub. Locate the latest release and download the PDF file from there.
