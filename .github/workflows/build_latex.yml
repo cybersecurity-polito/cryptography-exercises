@@ -1,0 +1,52 @@
+name: Build LaTeX document
+
+on:
+  push:
+    branches:
+      - main  # Check this
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Upload PDF file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: main.pdf
+
+      - name: Get the current date and repo name
+        id: vars
+        run: |
+          echo "RELEASE_DATE=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+          echo "REPO_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.BUILD_LATEX }} # Check this
+        with:
+          tag_name: release-${{ env.RELEASE_DATE }}
+          release_name: Release ${{ env.RELEASE_DATE }}
+          draft: false
+          prerelease: false
+
+      - name: Upload PDF to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.BUILD_LATEX }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: ${{ env.REPO_NAME }}_${{ env.RELEASE_DATE }}.pdf
+          asset_content_type: application/pdf
